@@ -1,0 +1,54 @@
+<div class="header-background">
+  <div class="container">
+    <div class="testimonial">
+      "Finding the right babysitter has never been easier."
+      <br>
+      <span class="name">Michelle Obama</span>
+    </div>
+  </div>
+</div>
+
+<div class="container search-bar" ng-controller="ListCtrl">
+  <div class="pagination-centered">
+    <h1>Find the perfect babysitter for your baby now.</h1>
+    <p><img class="headshots" src="img/headshots.png"></p>
+    <p>
+      <input type="text" placeholder="Enter your location... (e.g Mountain View, CA)" ng-model="searchInput" ng-click="scrollWindow()">
+    </p>
+  </div>
+
+  <div class="baby-cta">
+    <img src="img/baby-cta.png">
+  </div>
+  
+  <div class="container listing-container">
+    <ul class="unstyled">
+      <li ng-repeat="babysitter in babysitters | filter:searchInput" class="search-listing img-rounded row" ng-animate="'fading'">
+        <div class="listing-left">
+          <img src="{{ babysitter.portrait }}" class="img-rounded">
+        </div>
+        <div class="listing-middle">
+          <div class="name">
+            <p>{{ babysitter.firstName + ' ' + babysitter.lastName }}<p>
+          </div>
+          <div class="location">
+            <p>{{babysitter.location}}</p>
+          </div>
+          <div class="description">
+            <p>{{ babysitter.description }}<p>
+          </div>
+          <div class="detail-buttons btn-group">
+              <button class="btn btn-medium"><i class="icon-bookmark"></i> Bookmark</button>
+              <button class="btn btn-medium"><i class="icon-star"></i> Reviews</button>
+              <button class="btn btn-medium"><i class="icon-calendar"></i> Schedule</button>
+              <button class="btn btn-medium"><i class="icon-film"></i> Video</button>
+              <button class="btn btn-medium"><i class="icon-envelope"></i> Message</button>
+          </div>
+        </div>
+        <div class="listing-right">
+          <img src="http://maps.googleapis.com/maps/api/staticmap?center={{babysitter.location}}&zoom=15&size=200x180&sensor=false" class="img-rounded">
+        </div>
+      </li>
+    </ul>  
+  </div>
+</div>

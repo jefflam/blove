@@ -1,30 +1,169 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+/*
+Global
+*/
+body {
+  padding-bottom: 40px;
+  background-image: url(../img/background.jpg);
+}
+h1 {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 300;
 }
 
-.menu:before {
-  content: "[";
+/*
+Home
+*/
+.header-background {
+  background-image: url(../img/header-background.jpg);
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  min-height: 350px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  box-shadow: 0 5px 5px #efefef;
+  padding-top: 40px;
+}
+.testimonial {
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: 100;
+  width: 400px;
+  height: 150px;
+  line-height: 1.25em;
+  margin-left: 550px;
+  margin-top: 50px;
+}
+.testimonial .name {
+  font-size: 24px;
+  font-style: italic;
+  color: #ccc;
+}
+.headshots {
+  margin-top: 20px;
+}
+.search-bar {
+  margin-top: 20px;
+}
+.search-bar input {
+  margin-top: 20px;
+  height: 20px;
+  width: 600px;
+  border-radius: 50px;
+  font-size: 24px;
+  padding: 20px;
+  font-weight: 300;
+}
+.search-bar input::-webkit-input-placeholder {
+  color: #777 !important;
+  padding-top: 5px !important;
+  font-style: italic;
+  font-weight: 100;
+}
+.search-bar input::-ms-input-placeholder {
+  color: #777 !important;
+  padding-top: 5px !important;
+  font-style: italic;
+  font-weight: 100;
+}
+.search-bar input::-moz-placeholder {
+  color: #777 !important;
+  padding-top: 5px !important;
+  font-style: italic;
+  font-weight: 100;
+}
+/*.search-bar button {
+  width: 600px;
+  text-shadow: 1px 1px 1px #555;
+}*/
+
+/*
+Listing
+*/
+.listing-container {
+  min-height: 1500px;
+  opacity: 0;
+}
+.baby-cta {
+  position: fixed;
+  width: 250px;
+  left: 0px;
+  bottom: 0px;
+}
+.search-listing {
+  height: 180px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.search-listing .listing-left {
+  float: left;
+  width: 200px;
+  height: 180px;
+}
+.search-listing .listing-middle {
+  float: left;
+  width: 500px;
+  height: 180px;
+}
+.search-listing .listing-middle .name {
+  font-size: 28px;
+  font-weight: 300;
+  color: #555;
+}
+.search-listing .listing-middle .location {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 300;
+  color: #999;
+}
+.search-listing .listing-middle .description {
+  position: relative;
+  height: 80px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.search-listing .listing-middle .detail-buttons {
+  position: relative;
+  top: 10px;
+}
+.search-listing .listing-right {
+  float: right;
+  width: 200px;
+  height: 180px;
 }
 
-.menu:after {
-  content: "]";
+/* 
+Animations
+*/
+.fading-enter,
+.fading-leave,
+.fading-move {
+  -webkit-transition: 0.2s linear all;
+  -moz-transition: 0.2s linear all;
+  -o-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+  position:relative;
+}
+.fading-enter {
+  opacity:0;
+}
+.fading-enter.fading-enter-active {
+  opacity:1;
 }
 
-.menu > li {
-  display: inline;
+.fading-leave {
+  opacity:1;
+}
+.fading-leave.fading-leave-active {
+  opacity:0;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+.fading-move {
+  opacity:0.5;
 }
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+.fading-move.fading-move-active {
+  opacity:1;
 }
