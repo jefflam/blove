@@ -13,7 +13,7 @@
     <h1>Find the perfect babysitter for your baby now.</h1>
     <p><img class="headshots" src="img/headshots.png"></p>
     <p>
-      <input type="text" placeholder="Enter your location... (e.g Mountain View, CA)" ng-model="searchInput" ng-click="scrollWindow()">
+      <input type="text" class="search-bar-input" placeholder="Enter your location... (e.g Mountain View, CA)" ng-model="searchInput" ng-click="scrollWindow()">
     </p>
   </div>
 
@@ -37,16 +37,208 @@
           <div class="description">
             <p>{{ babysitter.description }}<p>
           </div>
-          <div class="detail-buttons btn-group">
-              <button class="btn btn-medium"><i class="icon-bookmark"></i> Bookmark</button>
-              <button class="btn btn-medium"><i class="icon-star"></i> Reviews</button>
-              <button class="btn btn-medium"><i class="icon-calendar"></i> Schedule</button>
-              <button class="btn btn-medium"><i class="icon-film"></i> Video</button>
-              <button class="btn btn-medium"><i class="icon-envelope"></i> Message</button>
-          </div>
+          <listing-detail-buttons></listing-detail-buttons>
         </div>
         <div class="listing-right">
           <img src="http://maps.googleapis.com/maps/api/staticmap?center={{babysitter.location}}&zoom=15&size=200x180&sensor=false" class="img-rounded">
+        </div>
+
+        <div class="listing-detail-container">
+          <div class="reviews hide">
+            <h3>Overall Rating</h3>
+            <p class="pagination-centered"><img src="img/ratings.png"></p>
+            
+            <div class="review well">
+              <div class="portrait">
+                <img src="http://placehold.it/100x100">
+              </div>
+              <div class="meta-data">
+                <p>Jeff Lam Tian Hung</p>
+                <p>
+                  <b>Serviced Rendered</b> <br>
+                  20th April 2013 - <br>
+                  25th April 2013
+                </p>
+                <p>
+                  <b>Review posted on:</b> <br>
+                  27th April 2013
+                </p>
+              </div>
+              <div class="review">
+                <p class="title">Patient babysitter</p>
+                <p class="rating"><img src="img/ratings.png"></p>
+                <p class="description">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui.</p>
+              </div>
+            </div>
+            <div class="review well">
+              <div class="portrait">
+                <img src="http://placehold.it/100x100">
+              </div>
+              <div class="meta-data">
+                <p>Jeff Lam Tian Hung</p>
+                <p>
+                  <b>Serviced Rendered</b> <br>
+                  20th April 2013 - <br>
+                  25th April 2013
+                </p>
+                <p>
+                  <b>Review posted on:</b> <br>
+                  27th April 2013
+                </p>
+              </div>
+              <div class="review">
+                <p class="title">Patient babysitter</p>
+                <p class="rating"><img src="img/ratings.png"></p>
+                <p class="description">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper. Donec sed odio dui.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule hide">
+            <h3>Schedule</h3>
+              <div class="date-picker pagination-centered">
+                <i class="icon-arrow-left"></i>
+                <b>June 2013</b>
+                <i class="icon-arrow-right"></i>
+              </div>
+              <div class="timetable">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Monday</th>
+                      <th>Tuesday</th>
+                      <th>Wednesday</th>
+                      <th>Thursday</th>
+                      <th>Friday</th>
+                      <th>Saturday</th>
+                      <th>Sunday</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>9:00am</td>
+                      <td class="available">9:00am</td>
+                      <td>9:00am</td>
+                      <td>9:00am</td>
+                      <td>9:00am</td>
+                      <td>9:00am</td>
+                      <td>9:00am</td>
+                    </tr>
+                    <tr>
+                      <td>10:00am</td>
+                      <td class="available">10:00am</td>
+                      <td>10:00am</td>
+                      <td class="available">10:00am</td>
+                      <td>10:00am</td>
+                      <td class="available">10:00am</td>
+                      <td>10:00am</td>
+                    </tr>
+                    <tr>
+                      <td>11:00am</td>
+                      <td class="available">11:00am</td>
+                      <td>11:00am</td>
+                      <td class="available">11:00am</td>
+                      <td class="available">11:00am</td>
+                      <td>11:00am</td>
+                      <td>11:00am</td>
+                    </tr>
+                    <tr>
+                      <td>12:00pm</td>
+                      <td class="available">12:00pm</td>
+                      <td>12:00pm</td>
+                      <td>12:00pm</td>
+                      <td class="available">12:00pm</td>
+                      <td>12:00pm</td>
+                      <td>12:00pm</td>
+                    </tr>
+                    <tr>
+                      <td>1:00pm</td>
+                      <td>1:00pm</td>
+                      <td>1:00pm</td>
+                      <td>1:00pm</td>
+                      <td>1:00pm</td>
+                      <td class="available">1:00pm</td>
+                      <td>1:00pm</td>
+                    </tr>
+                    <tr>
+                      <td>2:00pm</td>
+                      <td class="available">2:00pm</td>
+                      <td>2:00pm</td>
+                      <td class="available">2:00pm</td>
+                      <td class="available">2:00pm</td>
+                      <td>2:00pm</td>
+                      <td>2:00pm</td>
+                    </tr>
+                    <tr>
+                      <td class="available">3:00pm</td>
+                      <td class="available">3:00pm</td>
+                      <td>3:00pm</td>
+                      <td>3:00pm</td>
+                      <td>3:00pm</td>
+                      <td class="available">3:00pm</td>
+                      <td>3:00pm</td>
+                    </tr>
+                    <tr>
+                      <td class="available">4:00pm</td>
+                      <td class="available">4:00pm</td>
+                      <td>4:00pm</td>
+                      <td>4:00pm</td>
+                      <td>4:00pm</td>
+                      <td>4:00pm</td>
+                      <td class="available">4:00pm</td>
+                    </tr>
+                    <tr>
+                      <td class="available">5:00pm</td>
+                      <td class="available">5:00pm</td>
+                      <td>5:00pm</td>
+                      <td>5:00pm</td>
+                      <td>5:00pm</td>
+                      <td class="available">5:00pm</td>
+                      <td class="available">5:00pm</td>
+                    </tr>
+                    <tr>
+                      <td class="available">6:00pm</td>
+                      <td>6:00pm</td>
+                      <td>6:00pm</td>
+                      <td>6:00pm</td>
+                      <td>6:00pm</td>
+                      <td class="available">6:00pm</td>
+                      <td>6:00pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+
+          <div class="video hide">
+            <h3>Video Introduction</h3>
+            <div class="video-player pagination-centered">
+              <img src="http://placehold.it/550x300">
+            </div>
+          </div>
+
+          <div class="message hide">
+            <h3>Message {{ babysitter.firstName }}</h3>
+            <form class="form-horizontal">
+              <div class="control-group">
+                <label class="control-label" for="inputSubject">Subject</label>
+                <div class="controls">
+                  <input type="text" class="inputSubject span7" placeholder="Are you available to babysit on...">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputMessage">Message</label>
+                <div class="controls">
+                  <textarea rows="6" type="text" class="inputMessage span7" placeholder="Hi {{babysitter.firstName}}, are you available to babysit on..."></textarea>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="submit" class="btn">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </li>
     </ul>  

@@ -25,6 +25,19 @@ Home
   box-shadow: 0 5px 5px #efefef;
   padding-top: 40px;
 }
+.navbar .apply-link {
+  background-color: rgb(42, 133, 175);
+  margin-top: 6px;
+  padding-bottom: 14px;
+  height: 8px;
+  line-height: 9px;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 6px rgb(47, 99, 139), 0 0 10px rgb(163, 218, 248);
+  margin-right: 8px;
+}
+.navbar img.portrait {
+  margin-top: -3px;
+}
 .testimonial {
   font-size: 32px;
   color: #ffffff;
@@ -46,7 +59,7 @@ Home
 .search-bar {
   margin-top: 20px;
 }
-.search-bar input {
+.search-bar input.search-bar-input {
   margin-top: 20px;
   height: 20px;
   width: 600px;
@@ -55,19 +68,19 @@ Home
   padding: 20px;
   font-weight: 300;
 }
-.search-bar input::-webkit-input-placeholder {
+.search-bar input.search-bar-input::-webkit-input-placeholder {
   color: #777 !important;
   padding-top: 5px !important;
   font-style: italic;
   font-weight: 100;
 }
-.search-bar input::-ms-input-placeholder {
+.search-bar input.search-bar-input::-ms-input-placeholder {
   color: #777 !important;
   padding-top: 5px !important;
   font-style: italic;
   font-weight: 100;
 }
-.search-bar input::-moz-placeholder {
+.search-bar input.search-bar-input::-moz-placeholder {
   color: #777 !important;
   padding-top: 5px !important;
   font-style: italic;
@@ -87,7 +100,7 @@ Listing
 }
 .baby-cta {
   position: fixed;
-  width: 250px;
+  width: 150px;
   left: 0px;
   bottom: 0px;
 }
@@ -135,6 +148,82 @@ Listing
   height: 180px;
 }
 
+/*
+Listing Detail
+*/
+.listing-detail-container {
+  min-height: 280px;
+  width: 918px;
+  border-top: 1px solid #ddd;
+  clear: both;
+  position: relative;
+  top: 20px;
+}
+.listing-detail-container h3 {
+  text-align: center;
+  font-weight: 300;
+}
+.listing-detail-container .review {
+  height: 100px;
+}
+.listing-detail-container .review .portrait {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+.listing-detail-container .review .meta-data {
+  float: left;
+  margin-left: 20px;
+  width: 150px;
+  height: 100px;
+  font-size: 11px;
+  line-height: 1.2em;
+}
+.listing-detail-container .review .review {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+.listing-detail-container .review .title {
+  font-size: 14px;
+  font-weight: bold;
+  width: 300px;
+  height: 10px;
+}
+.listing-detail-container .review .rating {
+  height: 15px;
+  width: 100px;
+}
+.listing-detail-container .review .description {
+  height: 50px;
+  width: 550px;
+  font-size: 13px;
+}
+.listing-detail-container .schedule {
+  height: 200px;
+}
+.listing-detail-container .schedule table th {
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+}
+.listing-detail-container .schedule table td {
+  text-align: center;
+  color: #aaa;
+}
+.listing-detail-container .schedule table td.available {
+  font-weight: bold;
+  color: #1ba5d2;
+  font-size: 16px;
+  cursor: pointer;
+}
+.listing-detail-container .schedule table td.available:hover {
+  color: rgb(55, 194, 240);
+}
+.listing-detail-container .schedule .video {
+  width: 400px;
+  height: 400px;
+  border: 1px solid red;
+}
 /* 
 Animations
 */
