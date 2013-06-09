@@ -37,6 +37,8 @@ Home
 }
 .navbar img.portrait {
   margin-top: -3px;
+  width: 25px;
+  height: 25px;
 }
 .testimonial {
   font-size: 32px;
@@ -114,6 +116,10 @@ Listing
 .search-listing .listing-left {
   float: left;
   width: 200px;
+  height: 180px;
+}
+.search-listing .listing-left img {
+  width: 180px;
   height: 180px;
 }
 .search-listing .listing-middle {

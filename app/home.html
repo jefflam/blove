@@ -211,9 +211,28 @@
           </div>
 
           <div class="video hide">
-            <h3>Video Introduction</h3>
+            <h3>Video Call</h3>
             <div class="video-player pagination-centered">
               <img src="http://placehold.it/550x300">
+              <div id="myPublisherDiv"></div>
+              <script type="text/javascript">
+                // Initialize API key, session, and token...
+                // Think of a session as a room, and a token as the key to get in to the room
+                // Sessions and tokens are generated on your server and passed down to the client
+                var apiKey = "31670772";
+                var sessionId = "2_MX4zMTY3MDc3Mn4xMjcuMC4wLjF-U2F0IEp1biAwOCAxODozMjo0MCBQRFQgMjAxM34wLjMyNjAxMzMzfg";
+                var token = "T1==cGFydG5lcl9pZD0zMTY3MDc3MiZzZGtfdmVyc2lvbj10YnJ1YnktdGJyYi12MC45MS4yMDExLTAyLTE3JnNpZz1hYTkyYWQ4NDU3ODI4ZTczMjhiMDI4OWYzY2E0MWE0OGU5ZWVkNmE5OnJvbGU9cHVibGlzaGVyJnNlc3Npb25faWQ9JmNyZWF0ZV90aW1lPTEzNzA3NDIxOTUmbm9uY2U9MC42OTg2NDU1Mjg4NDA2MjA2JmV4cGlyZV90aW1lPTEzNzA4Mjg1OTUmY29ubmVjdGlvbl9kYXRhPQ==";
+
+                // Initialize session, set up event listeners, and connect
+                var session = TB.initSession(sessionId);
+                session.addEventListener('sessionConnected', sessionConnectedHandler);
+                session.connect(apiKey, token);
+                
+                function sessionConnectedHandler(event) {
+                  var publisher = TB.initPublisher(apiKey, 'myPublisherDiv');
+                  session.publish(publisher);
+                }
+              </script>
             </div>
           </div>
 

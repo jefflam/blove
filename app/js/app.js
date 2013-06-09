@@ -6,10 +6,10 @@ blove.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'home.html',
     controller: 'HomeCtrl'
   })
-  // .when('/:location', {
-  //   templateUrl: 'list.html',
-  //   controller: 'ListCtrl'
-  // })
+  .when('/feed', {
+    templateUrl: 'feed.html',
+    controller: 'FeedCtrl'
+  })
   // .otherwise({
   //   redirectTo: '/view1'
   // });
@@ -35,28 +35,28 @@ blove.controller('ListCtrl', function($scope) {
       firstName: 'Teresa',
       lastName: 'Aldrige',
       description: 'Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
-      portrait: 'http://placehold.it/180x180',
+      portrait: 'img/babysitter-portrait.png',
       location: 'Palo Alto, CA'
     },
     {
       firstName: 'Ana',
       lastName: 'Navarro',
       description: 'Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
-      portrait: 'http://placehold.it/180x180',
+      portrait: 'img/babysitter-portrait2.png',
       location: 'Stanford, CA'
     },
     {
       firstName: 'Fei',
       lastName: 'Fei',
       description: 'Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
-      portrait: 'http://placehold.it/180x180',
+      portrait: 'img/babysitter-portrait3.png',
       location: 'Mountain View, CA'
     },
     {
       firstName: 'Melissa',
       lastName: 'Miranda',
       description: 'Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
-      portrait: 'http://placehold.it/180x180',
+      portrait: 'img/babysitter-portrait4.png',
       location: 'Sunnyvale, CA'
     }
   ];
