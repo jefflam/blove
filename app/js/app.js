@@ -26,6 +26,10 @@ blove.controller('ListCtrl', function($scope) {
     jQuery('.baby-cta').animate({opacity: 0}, 500);
   };
 
+  $scope.popover = function() {
+    // $scope.pop
+  }
+
   $scope.displayDetailTab = function(tab) {
     console.log('yo ' + tab);
   };
