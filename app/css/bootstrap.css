@@ -2880,6 +2880,7 @@ table th[class*="span"],
 
 .dropdown-toggle {
   *margin-bottom: -3px;
+  cursor: pointer;
 }
 
 .dropdown-toggle:active,

@@ -225,10 +225,25 @@ Listing Detail
 .listing-detail-container .schedule table td.available:hover {
   color: rgb(55, 194, 240);
 }
+.listing-detail-container .schedule table td.nanny-share {
+  font-weight: bold;
+  color: #FFAD00;
+  font-size: 16px;
+  cursor: pointer;
+}
+.listing-detail-container .schedule table td.nanny-share:hover {
+  color: #FFC956;
+}
 .listing-detail-container .schedule .video {
   width: 400px;
   height: 400px;
   border: 1px solid red;
+}
+.listing-detail-container .video .video-player {
+  margin-left: 50px;
+}
+.listing-detail-container .video span {
+  margin-left: 50px;
 }
 /* 
 Animations
@@ -261,4 +276,74 @@ Animations
 }
 .fading-move.fading-move-active {
   opacity:1;
+}
+
+/*
+News Feed 
+*/
+.feed {
+  margin-top: 50px;
+}
+.feed .feed-item {
+  margin-top: 50px;
+  margin-left: 140px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 650px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+}
+.feed .feed-item-first {
+  margin-top: 0px;
+}
+.feed .feed-item .meta-information .portrait {
+  width: 75px;
+  height: 75px;
+}
+.feed .feed-item .meta-information p {
+  width: 75px;
+  text-align: left;
+}
+.feed .feed-item .meta-information .timedate {
+  font-size: 13px;
+  font-style: italic;
+}
+.feed .feed-item .media-item .caption {
+  text-align: left;
+  margin-left: 20px;
+}
+.social-media {
+  text-align: left;
+  margin-left: 20px;
+}
+.social-media .facebook {
+  background: url('../img/facebook.png') no-repeat 0 0;
+  width: 150px;
+  height: 22px;
+}
+.social-media .twitter {
+  background: url('../img/twitter.png') no-repeat 0 0;
+  width: 150px;
+  height: 22px;
+}
+
+/*
+Apply to Blove
+*/
+.apply-blove {
+  margin-top: 40px;
+}
+.apply-blove .video-section {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  position: relative;
+  width: 1340px;
+  left: -230px;
+}
+.apply-blove .align-right {
+  text-align: right;
+  width: 50px;
 }

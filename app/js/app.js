@@ -1,7 +1,7 @@
 // Declare app level module which depends on filters, and services
-var blove = angular.module('blove', []);
+var blove = angular.module('blove', ['$strap.directives']);
 
-blove.config(['$routeProvider', function($routeProvider) {
+blove.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
     templateUrl: 'home.html',
     controller: 'HomeCtrl'
@@ -10,12 +10,24 @@ blove.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'feed.html',
     controller: 'FeedCtrl'
   })
+  .when('/apply', {
+    templateUrl: 'apply.html',
+    controller: 'ApplyCtrl'
+  });
   // .otherwise({
   //   redirectTo: '/view1'
   // });
+  
+  // $locationProvider.html5Mode(true);
 }]);
 
 blove.controller('HomeCtrl', function($scope) {
+});
+
+blove.controller('FeedCtrl', function($scope) {
+});
+
+blove.controller('ApplyCtrl', function($scope) {
 });
 
 blove.controller('ListCtrl', function($scope) {
@@ -26,8 +38,9 @@ blove.controller('ListCtrl', function($scope) {
     jQuery('.baby-cta').animate({opacity: 0}, 500);
   };
 
-  $scope.popover = function() {
-    // $scope.pop
+  $scope.popover = {
+    "content": "Nanny sharing available! Click to inquire.",
+    "saved": false
   }
 
   $scope.displayDetailTab = function(tab) {
@@ -37,28 +50,28 @@ blove.controller('ListCtrl', function($scope) {
   $scope.babysitters = [
     {
       firstName: 'Teresa',
-      lastName: 'Aldrige',
+      lastName: 'Aldrige - $45/hour',
       description: 'Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
       portrait: 'img/babysitter-portrait.png',
       location: 'Palo Alto, CA'
     },
     {
       firstName: 'Ana',
-      lastName: 'Navarro',
+      lastName: 'Navarro - $55/hour',
       description: 'Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
       portrait: 'img/babysitter-portrait2.png',
       location: 'Stanford, CA'
     },
     {
       firstName: 'Fei',
-      lastName: 'Fei',
+      lastName: 'Fei  - $45/hour',
       description: 'Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
       portrait: 'img/babysitter-portrait3.png',
       location: 'Mountain View, CA'
     },
     {
       firstName: 'Melissa',
-      lastName: 'Miranda',
+      lastName: 'Miranda - $50/hour',
       description: 'Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
       portrait: 'img/babysitter-portrait4.png',
       location: 'Sunnyvale, CA'
@@ -80,13 +93,12 @@ blove.directive('reviewsBtn', function() {
     link: function(scope, element, attrs) {
       element.click('click', function() {
         var parentListingView = element.parent().parent().parent().parent();
-        console.log(parentListingView.css('height'));
         if (parentListingView.css('height') === '180px') {
           element.parent().parent().parent().parent().css('height', 620);
-          angular.element('.listing-detail-container .reviews').addClass('show');
+          element.parent().parent().parent().next().next().children('.reviews').addClass('show');
         } else {
           element.parent().parent().parent().parent().css('height', 180);
-          angular.element('.listing-detail-container .reviews').removeClass('show');
+          element.parent().parent().parent().next().next().children('.reviews').removeClass('show');
         }
       });
     }
@@ -95,17 +107,17 @@ blove.directive('reviewsBtn', function() {
 
 blove.directive('scheduleBtn', function() {
   return {
-    scope: true,
+    // scope: true,
     link: function(scope, element, attrs) {
       element.click('click', function() {
         var parentListingView = element.parent().parent().parent().parent();
-        console.log(parentListingView.css('height'));
         if (parentListingView.css('height') === '180px') {
-          element.parent().parent().parent().parent().css('height', 700);
-          angular.element('.listing-detail-container .schedule').addClass('show');
+          parentListingView.css('height', 700);
+          element.parent().parent().parent().next().next().children('.schedule').addClass('show');
+
         } else {
-          element.parent().parent().parent().parent().css('height', 180);
-          angular.element('.listing-detail-container .schedule').removeClass('show');
+          parentListingView.css('height', 180);
+          element.parent().parent().parent().next().next().children('.schedule').removeClass('show');
         }
       });
     }
@@ -118,13 +130,12 @@ blove.directive('videoBtn', function() {
     link: function(scope, element, attrs) {
       element.click('click', function() {
         var parentListingView = element.parent().parent().parent().parent();
-        console.log(parentListingView.css('height'));
         if (parentListingView.css('height') === '180px') {
           element.parent().parent().parent().parent().css('height', 580);
-          angular.element('.listing-detail-container .video').addClass('show');
+          element.parent().parent().parent().next().next().children('.video').addClass('show');
         } else {
           element.parent().parent().parent().parent().css('height', 180);
-          angular.element('.listing-detail-container .video').removeClass('show');
+          element.parent().parent().parent().next().next().children('.video').removeClass('show');
         }
       });
     }
@@ -137,13 +148,12 @@ blove.directive('messageBtn', function() {
     link: function(scope, element, attrs) {
       element.click('click', function() {
         var parentListingView = element.parent().parent().parent().parent();
-        console.log(parentListingView.css('height'));
         if (parentListingView.css('height') === '180px') {
           element.parent().parent().parent().parent().css('height', 500);
-          angular.element('.listing-detail-container .message').addClass('show');
+          element.parent().parent().parent().next().next().children('.message').addClass('show');
         } else {
           element.parent().parent().parent().parent().css('height', 180);
-          angular.element('.listing-detail-container .message').removeClass('show');
+          element.parent().parent().parent().next().next().children('.message').removeClass('show');
         }
       });
     }
